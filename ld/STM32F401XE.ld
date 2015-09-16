@@ -19,7 +19,7 @@ MEMORY
 {
   VECTORS (rx)          : ORIGIN = 0x08000000, LENGTH = 0x00000400
   FLASH (rx)            : ORIGIN = 0x08000400, LENGTH = 512K - 0x400
-  CCM (rwx)             : ORIGIN = 0x10000000, LENGTH = 64K
+/*  CCM (rwx)             : ORIGIN = 0x10000000, LENGTH = 64K */
   RAM (rwx)             : ORIGIN = 0x20000194, LENGTH = 96k - 0x194
 }
 
@@ -61,10 +61,10 @@ SECTIONS
          . = ALIGN(4);
     } > VECTORS
     /* ensure that uvisor bss is at the beginning of memory */
-    .uvisor.bss (NOLOAD):
+/*    .uvisor.bss (NOLOAD):
     {
-        /* protected uvisor SRAM starts here */
-        KEEP(*(.uvisor.bss.main))
+*/        /* protected uvisor SRAM starts here */
+/*        KEEP(*(.uvisor.bss.main))
         KEEP(*(.uvisor.bss.stack))
         __uvisor_bss_start = .;
         *(.uvisor.bss*)
@@ -81,11 +81,11 @@ SECTIONS
         . = ALIGN(32);
         __uvisor_data_end = .;
     } > CCM
-
+*/
     .text :
     {
         /* uVisor code and data */
-        *(.uvisor.main)
+        //*(.uvisor.main)
 
         *(.text*)
 
@@ -183,7 +183,7 @@ SECTIONS
     } > RAM AT>FLASH
 
     /* put uvisor data flash section at the end of flash */
-    .uvisor.secure :
+/*    .uvisor.secure :
     {
         . = ALIGN(32);
         __uvisor_secure_start = .;
@@ -202,7 +202,7 @@ SECTIONS
         . = ALIGN(1024);
         __uvisor_secure_end = .;
     } >FLASH
-
+*/
     .bss (NOLOAD):
     {
         . = ALIGN(4);
