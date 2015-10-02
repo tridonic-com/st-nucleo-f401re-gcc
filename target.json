@@ -34,7 +34,8 @@
     "cortex-m4",
     "armv7-m",
     "arm",
-    "gcc"
+    "gcc",
+    "mbed"
   ],
   "toolchain": "CMake/toolchain.cmake",
   "debug": [
