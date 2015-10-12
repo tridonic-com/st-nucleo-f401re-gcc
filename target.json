@@ -38,7 +38,7 @@
         "LED4": "NC",
         "USER_BUTTON": "PC_13",
         "SW2": "NC",
-        "SW3": "Nc",
+        "SW3": "NC",
         "SERIAL_TX": "PA_2",
         "SERIAL_RX": "PA_3",
         "USBTX": "PA_2",
