@@ -61,8 +61,6 @@
         "SERIAL_RX": "PA_3",
         "USBTX": "PA_2",
         "USBRX": "PA_3",
-        "STDIO_UART_TX": "PA_2",
-        "STDIO_UART_RX": "PA_3",
         "STDIO_UART": "USART2_BASE",
         "D0": "PA_3",
         "D1": "PA_2",
