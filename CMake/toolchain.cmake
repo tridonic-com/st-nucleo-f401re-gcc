@@ -1,22 +1,9 @@
-# Copyright (c) 2015 ARM Limited
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
+# Copyright (C) 2014-2015 ARM Limited. All rights reserved.
 
-if(TARGET_STM32F401RE_NUCLEO_GCC_TOOLCHAIN_INCLUDED)
+if(TARGET_ST_NUCLEO_F401RE_GCC_TOOLCHAIN_INCLUDED)
     return()
 endif()
-set(TARGET_STM32F401RE_NUCLEO_GCC_TOOLCHAIN_INCLUDED 1)
+set(TARGET_ST_NUCLEO_F401RE_GCC_TOOLCHAIN_INCLUDED 1)
 
 # provide compatibility definitions for compiling with this target: these are
 # definitions that legacy code assumes will be defined. Before adding something
@@ -24,9 +11,9 @@ set(TARGET_STM32F401RE_NUCLEO_GCC_TOOLCHAIN_INCLUDED 1)
 # definition that you're about to add to rely on the TARGET_LIKE_XXX
 # definitions that yotta provides based on the target.json file.
 #
-add_definitions("-DTARGET_NUCLEO_F401RE -DTARGET_STM32F401RE -DTARGET_STM32F4 -DTOOLCHAIN_GCC -DTOOLCHAIN_GCC_ARM -DSTM32F401xE")
+add_definitions("-DTARGET_NUCLEO_F401RE -DTARGET_STM32F401RE -DTARGET_STM32F4 -DTARGET_STM -DSTM32F401xE")
 
-# append non-generic flags, and set link script
+# append non-generic flags, and set Nucleo-F401RE-specific link script
 
 set(_CPU_COMPILATION_OPTIONS "-mcpu=cortex-m4 -mthumb -D__thumb2__")
 

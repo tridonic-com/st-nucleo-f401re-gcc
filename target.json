@@ -1,10 +1,10 @@
 {
   "name": "st-nucleo-f401re-gcc",
-  "version": "0.1.0",
+  "version": "0.2.0",
+  "description": "Official mbed build target for the mbed ST Nucleo f401re development board.",
   "inherits": {
     "mbed-gcc": "*"
   },
-  "description": "Official mbed build target for the mbed st-nucleo-f401re development board.",
   "licenses": [
     {
       "url": "https://spdx.org/licenses/Apache-2.0",
@@ -44,46 +44,25 @@
         "ram_vector_address": "0x20000000",
         "flash_vector_address": "0x08000000",
         "user_irq_offset": 16,
-        "user_irq_number": 101
+        "user_irq_number": 85
       }
     },
     "hardware": {
       "externalClock": "8000000",
       "pins": {
-        "LED1": "PA_5",
+        "LED1": "NC",
         "LED2": "NC",
         "LED3": "NC",
         "LED4": "NC",
-        "USER_BUTTON": "PC_13",
+        "USER_BUTTON": "NC",
         "SW2": "NC",
         "SW3": "NC",
-        "SERIAL_TX": "PA_2",
-        "SERIAL_RX": "PA_3",
-        "USBTX": "PA_2",
-        "USBRX": "PA_3",
+        "SERIAL_TX": "PA_9",
+        "SERIAL_RX": "PA_10",
+        "USBTX": "PA_9",
+        "USBRX": "PA_10",
         "I2C_SCL": "PB_8",
-        "I2C_SDA": "PB_9",
-        "SPI_MOSI": "PA_7",
-        "SPI_MISO": "PA_6",
-        "SPI_SCK": "PA_5",
-        "SPI_CS": "PA_4",
-        "PWM_OUT": "PB_3"
-      },
-      "test-pins": {
-        "spi": {
-          "mosi": "SPI_MOSI",
-          "miso": "SPI_MISO",
-          "sclk": "SPI_SCK",
-          "ssel": "SPI_CS"
-        },
-        "i2c": {
-          "sda": "I2C_SDA",
-          "scl": "I2C_SCL"
-        },
-        "serial": {
-          "tx": "PC_12",
-          "rx": "PF_6"
-        }
+        "I2C_SDA": "PB_9"
       }
     }
   },
@@ -98,13 +77,13 @@
     "debug": [
       "valinor",
       "--target",
-      "stm32f401re",
+      "ST_NUCLEO_F401RE",
       "$program"
     ],
     "test": [
       "mbed_test_wrapper",
       "--target",
-      "NUCLEO_F401RE",
+      "ST_NUCLEO_F401RE",
       "$program"
     ]
   }
