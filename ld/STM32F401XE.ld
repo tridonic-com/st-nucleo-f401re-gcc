@@ -17,9 +17,10 @@
 /* Linker script to configure memory regions. */
 MEMORY
 {
-  VECTORS (rx)          : ORIGIN = 0x08000000, LENGTH = 0x00000400
-  FLASH (rx)            : ORIGIN = 0x08000400, LENGTH = 512K - 0x400
-/*  CCM (rwx)             : ORIGIN = 0x10000000, LENGTH = 64K */
+  VECTORS (rx)          : ORIGIN = 0x08000000, LENGTH = 0x00004000
+  CONFIG_DATA (rx)      : ORIGIN = 0x08004000, LENGTH = 0x00004000
+  FLASH (rx)            : ORIGIN = 0x08008000, LENGTH = 512K - 0x8000
+/*  CCM (rwx)           : ORIGIN = 0x10000000, LENGTH = 64K */
   RAM (rwx)             : ORIGIN = 0x20000194, LENGTH = 96k - 0x194
 }
 
@@ -61,6 +62,13 @@ SECTIONS
          . = ALIGN(4);
     } > VECTORS
 
+    .config_data :
+    {
+        __config_data = .;
+        KEEP(*(.config_data))
+         . = ALIGN(4);
+    } > CONFIG_DATA
+    
     /* ensure that uvisor bss is at the beginning of memory */
     .uvisor.bss (NOLOAD):
     {
@@ -141,7 +149,7 @@ SECTIONS
     {
         __StackLimit = .;
         *(.stack*);
-        . += 0x4000 - (. - __StackLimit);
+        . += 0x3000 - (. - __StackLimit);
     } > RAM
 
     /* Set stack top to end of RAM, and stack limit move down by
