@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "description": "Official mbed build target for the mbed ST Nucleo f401re development board.",
   "inherits": {
-    "mbed-gcc": "mbed-gcc,tridonic-com/target-mbed-gcc"
+    "mbed-gcc": "tridonic-com/target-mbed-gcc#master"
   },
   "licenses": [
     {
