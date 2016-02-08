@@ -1,6 +1,6 @@
 {
   "name": "st-nucleo-f401re-gcc",
-  "version": "0.2.0",
+  "version": "0.2.0-tri-0.0.3",
   "description": "Official mbed build target for the mbed ST Nucleo f401re development board.",
   "inherits": {
     "mbed-gcc": "*"
