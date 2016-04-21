@@ -1,9 +1,11 @@
 {
   "name": "st-nucleo-f401re-gcc",
-  "version": "0.2.0-tri-0.0.3",
-  "description": "Official mbed build target for the mbed ST Nucleo f401re development board.",
-  "inherits": {
-    "mbed-gcc": "*"
+  "version": "0.2.5-tri-0.4.0",
+  "description": "Official mbed build target for the mbed ST Nucleo f401re development board, using armgcc toolchain",
+  "homepage": "https://github.com/ARMmbed/target-st-nucleo-f401re-gcc",
+  "repository": {
+    "url": "git@github.com:ARMmbed/target-st-nucleo-f401re-gcc.git",
+    "type": "git"
   },
   "licenses": [
     {
@@ -11,12 +13,18 @@
       "type": "Apache-2.0"
     }
   ],
+  "inherits": {
+    "mbed-gcc": "*"
+  },
   "keywords": [
     "mbed-target:nucleo-f401re",
     "mbed-official",
     "nucleo-f401re",
     "f401",
     "nucleo",
+    "x-nucleo",
+    "ST",
+    "STM",
     "gcc"
   ],
   "similarTo": [
@@ -35,7 +43,9 @@
     "armv7-m",
     "arm",
     "gcc",
-    "mbed"
+    "mbed",
+    "stm32f401re-no-inherit",
+    "stm32f401xe-no-inherit"
   ],
   "config": {
     "mbed-os": {},
@@ -46,6 +56,9 @@
         "user_irq_offset": 16,
         "user_irq_number": 85
       }
+    },
+    "uvisor": {
+      "present": 0
     },
     "hardware": {
       "externalClock": "8000000",
