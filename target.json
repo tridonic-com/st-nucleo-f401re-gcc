@@ -1,6 +1,6 @@
 {
   "name": "st-nucleo-f401re-gcc",
-  "version": "0.2.5-tri-0.4.0",
+  "version": "0.2.5-tri-0.5.0",
   "description": "Official mbed build target for the mbed ST Nucleo f401re development board, using armgcc toolchain",
   "homepage": "https://github.com/ARMmbed/target-st-nucleo-f401re-gcc",
   "repository": {
