@@ -17,9 +17,10 @@
 /* Linker script to configure memory regions. */
 MEMORY
 {
-  VECTORS (rx)          : ORIGIN = 0x08000000, LENGTH = 0x00004000
+  VECTORS (rx)          : ORIGIN = 0x08000000, LENGTH = 0x00004000 /* do automatic */
   CONFIG_DATA (rx)      : ORIGIN = 0x08004000, LENGTH = 0x00004000
-  FLASH (rx)            : ORIGIN = 0x08008000, LENGTH = 512K - 0x8000
+  BOOTLOADER (rx)       : ORIGIN = 0x08008000, LENGTH = 0x00004000
+  FLASH (rx)            : ORIGIN = 0x0800C000, LENGTH = 512K - 0x0C000
 /*  CCM (rwx)           : ORIGIN = 0x10000000, LENGTH = 64K */
   RAM (rwx)             : ORIGIN = 0x20000194, LENGTH = 96k - 0x194
 }
@@ -68,6 +69,15 @@ SECTIONS
         KEEP(*(.config_data))
          . = ALIGN(4);
     } > CONFIG_DATA
+    
+    .bootloader :
+    {
+        __start_pattern = .;
+        . = . + 8; 
+        __bootloader = .;
+        KEEP(*(.bootloader))
+         . = ALIGN(4);
+    } > BOOTLOADER
     
     /* ensure that uvisor bss is at the beginning of memory */
     .uvisor.bss (NOLOAD):
