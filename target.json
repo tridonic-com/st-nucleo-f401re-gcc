@@ -14,7 +14,7 @@
     }
   ],
   "inherits": {
-    "mbed-gcc": "*"
+    "mbed-gcc": "tridonic-com/target-mbed-gcc#b1.1.0-tri-0.5.2"
   },
   "keywords": [
     "mbed-target:nucleo-f401re",
